@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High End | الماركات</title>
+    <meta name="description" content="تسوّق منتجات High End حسب أرقى الماركات العالمية: Rolex, Omega, Cartier وغيرها.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Tajawal:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: {
+                    gold: { DEFAULT: '#d4af37', light: '#f3e5ab', dark: '#aa8c2c', muted: '#4a3b22' },
+                    dark: { bg: '#050505', card: '#0a0a0a', border: 'rgba(212,175,55,0.15)' }
+                },
+                fontFamily: {
+                    arabic: ['Tajawal', 'sans-serif'], serif: ['Playfair Display', 'serif'],
+                    cinzel: ['Cinzel', 'serif'], inter: ['Inter', 'sans-serif'],
+                }
+            }}
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <div id="top-bar-container"></div>
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow py-12 bg-[#050505] min-h-[80vh]">
+        <div class="container mx-auto w-[90%] max-w-[1400px]">
+
+            <div id="brands-back" class="mb-6 hidden"></div>
+
+            <div class="text-center mb-10">
+                <h1 id="brands-title" class="font-cinzel text-gold text-3xl md:text-4xl tracking-widest mb-3"></h1>
+                <p id="brands-subtitle" class="text-white/50 font-arabic"></p>
+            </div>
+
+            <div id="brands-content"></div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <a class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl z-50 whatsapp-float hover:scale-110 transition-transform duration-300" href="https://wa.me/201555823657" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div id="cart-container"></div>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products-render.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/brands.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html>

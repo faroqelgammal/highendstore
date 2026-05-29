@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة التحكم - Heritage Elegance</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: "#0d0d0d",
+                        darker: "#080808",
+                        card: "#161616",
+                        gold: "#c9a227",
+                        "gold-light": "#e0c14d",
+                    },
+                    fontFamily: {
+                        cairo: ["Cairo", "sans-serif"],
+                        tajawal: ["Tajawal", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        body { font-family: "Tajawal", sans-serif; background: #0d0d0d; color: #f5f5f5; }
+        h1,h2,h3,.font-cairo { font-family: "Cairo", sans-serif; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #161616; }
+        ::-webkit-scrollbar-thumb { background: #c9a227; border-radius: 4px; }
+        .field { background:#0d0d0d; border:1px solid #2a2a2a; border-radius:.5rem; padding:.6rem .8rem; width:100%; color:#f5f5f5; }
+        .field:focus { outline:none; border-color:#c9a227; }
+        .tab-btn.active { color:#0d0d0d; background:#c9a227; }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- شاشة الدخول -->
+    <div id="loginScreen" class="hidden min-h-screen flex items-center justify-center p-4">
+        <div class="w-full max-w-sm bg-card border border-white/10 rounded-2xl p-8">
+            <div class="text-center mb-6">
+                <i class="fa-solid fa-crown text-gold text-3xl mb-3"></i>
+                <h1 class="text-2xl font-bold">لوحة التحكم</h1>
+                <p class="text-white/50 text-sm mt-1">Heritage Elegance</p>
+            </div>
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm mb-2 text-white/70">كلمة سر المدير</label>
+                    <input id="loginPassword" type="password" class="field" autocomplete="current-password" required />
+                </div>
+                <p id="loginError" class="hidden text-red-400 text-sm"></p>
+                <button type="submit" class="w-full bg-gold hover:bg-gold-light text-dark font-bold py-3 rounded-lg transition-colors">دخول</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- لوحة التحكم -->
+    <div id="dashboard" class="hidden">
+        <header class="bg-darker border-b border-white/10 sticky top-0 z-40">
+            <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-crown text-gold"></i>
+                    <span class="font-cairo font-bold">لوحة التحكم</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="index.html" target="_blank" class="text-sm text-white/60 hover:text-gold transition-colors"><i class="fa-solid fa-arrow-up-right-from-square ml-1"></i> عرض المتجر</a>
+                    <button id="logoutBtn" class="text-sm bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg transition-colors"><i class="fa-solid fa-right-from-bracket ml-1"></i> خروج</button>
+                </div>
+            </div>
+            <nav class="max-w-6xl mx-auto px-4 pb-3 flex gap-2">
+                <button data-tab="products" class="tab-btn active px-4 py-2 rounded-lg text-sm font-bold bg-white/5 transition-colors">المنتجات</button>
+                <button data-tab="slides" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold bg-white/5 transition-colors">السلايدر</button>
+                <button data-tab="offers" class="tab-btn px-4 py-2 rounded-lg text-sm font-bold bg-white/5 transition-colors">العروض</button>
+            </nav>
+        </header>
+
+        <main class="max-w-6xl mx-auto px-4 py-6">
+            <!-- تبويب المنتجات -->
+            <section data-panel="products">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold">المنتجات (<span id="productsCount">0</span>)</h2>
+                    <button id="addProductBtn" class="bg-gold hover:bg-gold-light text-dark font-bold px-4 py-2 rounded-lg text-sm transition-colors"><i class="fa-solid fa-plus ml-1"></i> إضافة منتج</button>
+                </div>
+                <div id="productsList" class="grid gap-3"></div>
+            </section>
+
+            <!-- تبويب السلايدر -->
+            <section data-panel="slides" class="hidden">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold">شرائح السلايدر (<span id="slidesCount">0</span>)</h2>
+                    <button id="addSlideBtn" class="bg-gold hover:bg-gold-light text-dark font-bold px-4 py-2 rounded-lg text-sm transition-colors"><i class="fa-solid fa-plus ml-1"></i> إضافة شريحة</button>
+                </div>
+                <div id="slidesList" class="grid gap-3"></div>
+            </section>
+
+            <!-- تبويب العروض -->
+            <section data-panel="offers" class="hidden">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-xl font-bold">العروض (<span id="offersCount">0</span>)</h2>
+                    <button id="addOfferBtn" class="bg-gold hover:bg-gold-light text-dark font-bold px-4 py-2 rounded-lg text-sm transition-colors"><i class="fa-solid fa-plus ml-1"></i> إضافة عرض</button>
+                </div>
+                <div id="offersList" class="grid gap-3"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- نافذة التحرير -->
+    <div id="modal" class="hidden fixed inset-0 z-50 bg-black/70 flex items-start justify-center p-4 overflow-y-auto">
+        <div class="bg-card border border-white/10 rounded-2xl w-full max-w-2xl my-8">
+            <div class="flex items-center justify-between p-4 border-b border-white/10 sticky top-0 bg-card rounded-t-2xl">
+                <h3 id="modalTitle" class="text-lg font-bold">تحرير</h3>
+                <button id="modalClose" class="text-white/50 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="modalForm" class="p-5 space-y-4"></form>
+        </div>
+    </div>
+
+    <!-- إشعار -->
+    <div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] bg-card border border-gold text-white px-5 py-3 rounded-lg shadow-xl text-sm"></div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

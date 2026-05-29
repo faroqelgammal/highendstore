@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High End | متجر المنتجات الفاخرة</title>
+    <meta name="description" content="High End - متجر المنتجات الفاخرة: ساعات، محافظ، عطور، وإكسسوارات أصلية بأعلى جودة.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Tajawal:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#d4af37', light: '#f3e5ab', dark: '#aa8c2c', muted: '#4a3b22' },
+                        dark: { bg: '#050505', card: '#0a0a0a', border: 'rgba(212,175,55,0.15)' }
+                    },
+                    fontFamily: {
+                        arabic: ['Tajawal', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body class="antialiased flex flex-col min-h-screen">
+
+    <div id="app-storefront" class="flex flex-col min-h-screen w-full">
+
+        <!-- شريط الإعلانات (مشترك بين كل الصفحات) -->
+        <div id="top-bar-container"></div>
+
+        <!-- شريط التنقل (مشترك) -->
+        <div id="navbar-container"></div>
+
+        <main class="relative flex-grow">
+
+            <!-- السلايدر (مكوّن مشترك) -->
+            <div id="slider-container-component"></div>
+
+            <!-- تسوق حسب الفئة -->
+            <section id="categories" class="pt-16 pb-8 bg-[#050505]">
+                <div class="container mx-auto w-[90%] max-w-[1400px]">
+                    <div class="section-title">
+                        <h3 class="font-arabic text-2xl md:text-3xl text-white">تسوق حسب الفئة</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                        <!-- Watches -->
+                        <div class="relative h-48 border border-[rgba(212,175,55,0.15)] bg-[#0a0a0a] rounded-lg overflow-hidden group">
+                            <img src="images/image_9dce6a.jpg" alt="Watches" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:bg-black/60 transition-colors z-10"></div>
+                            <div class="absolute inset-0 p-5 flex flex-col justify-end items-center text-center z-20 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+                                <h4 class="font-cinzel text-gold tracking-widest text-lg mb-1 uppercase">Watches</h4>
+                                <p class="text-white/90 text-sm font-arabic">ساعات فاخرة</p>
+                            </div>
+                            <div class="absolute inset-0 z-30 flex opacity-0 group-hover:opacity-100 transition-opacity duration-300" dir="rtl">
+                                <a href="category.html?cat=watches&gender=men" class="w-1/2 h-full flex flex-col justify-center items-center border-l border-[rgba(212,175,55,0.3)] hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-male text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">رجالي</span>
+                                </a>
+                                <a href="category.html?cat=watches&gender=women" class="w-1/2 h-full flex flex-col justify-center items-center hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-female text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">نسائي</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Wallets -->
+                        <div class="relative h-48 border border-[rgba(212,175,55,0.15)] bg-[#0a0a0a] rounded-lg overflow-hidden group">
+                            <img src="images/image_9dcee4.jpg" alt="Wallets" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:bg-black/60 transition-colors z-10"></div>
+                            <div class="absolute inset-0 p-5 flex flex-col justify-end items-center text-center z-20 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+                                <h4 class="font-cinzel text-gold tracking-widest text-lg mb-1 uppercase">Wallets</h4>
+                                <p class="text-white/90 text-sm font-arabic">محافظ</p>
+                            </div>
+                            <div class="absolute inset-0 z-30 flex opacity-0 group-hover:opacity-100 transition-opacity duration-300" dir="rtl">
+                                <a href="category.html?cat=wallets&gender=men" class="w-1/2 h-full flex flex-col justify-center items-center border-l border-[rgba(212,175,55,0.3)] hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-male text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">رجالي</span>
+                                </a>
+                                <a href="category.html?cat=wallets&gender=women" class="w-1/2 h-full flex flex-col justify-center items-center hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-female text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">نسائي</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Perfumes -->
+                        <div class="relative h-48 border border-[rgba(212,175,55,0.15)] bg-[#0a0a0a] rounded-lg overflow-hidden group">
+                            <img src="images/image_9dcf40.jpg" alt="Perfumes" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=600&q=80'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:bg-black/60 transition-colors z-10"></div>
+                            <div class="absolute inset-0 p-5 flex flex-col justify-end items-center text-center z-20 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+                                <h4 class="font-cinzel text-gold tracking-widest text-lg mb-1 uppercase">Perfumes</h4>
+                                <p class="text-white/90 text-sm font-arabic">عطور أصلية</p>
+                            </div>
+                            <div class="absolute inset-0 z-30 flex opacity-0 group-hover:opacity-100 transition-opacity duration-300" dir="rtl">
+                                <a href="category.html?cat=perfumes&gender=men" class="w-1/2 h-full flex flex-col justify-center items-center border-l border-[rgba(212,175,55,0.3)] hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-male text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">رجالي</span>
+                                </a>
+                                <a href="category.html?cat=perfumes&gender=women" class="w-1/2 h-full flex flex-col justify-center items-center hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-female text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">نسائي</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Accessories -->
+                        <div class="relative h-48 border border-[rgba(212,175,55,0.15)] bg-[#0a0a0a] rounded-lg overflow-hidden group">
+                            <img src="images/image_9dd2a4.jpg" alt="Accessories" class="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent group-hover:bg-black/60 transition-colors z-10"></div>
+                            <div class="absolute inset-0 p-5 flex flex-col justify-end items-center text-center z-20 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
+                                <h4 class="font-cinzel text-gold tracking-widest text-lg mb-1 uppercase">Accessories</h4>
+                                <p class="text-white/90 text-sm font-arabic">إكسسوارات</p>
+                            </div>
+                            <div class="absolute inset-0 z-30 flex opacity-0 group-hover:opacity-100 transition-opacity duration-300" dir="rtl">
+                                <a href="category.html?cat=accessories&gender=men" class="w-1/2 h-full flex flex-col justify-center items-center border-l border-[rgba(212,175,55,0.3)] hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-male text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">رجالي</span>
+                                </a>
+                                <a href="category.html?cat=accessories&gender=women" class="w-1/2 h-full flex flex-col justify-center items-center hover:bg-[rgba(212,175,55,0.9)] hover:text-black text-gold cursor-pointer transition-colors duration-300">
+                                    <i class="ph-fill ph-gender-female text-3xl mb-2"></i>
+                                    <span class="font-arabic font-bold text-lg">نسائي</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- الأكثر مبيعاً -->
+            <section id="best-sellers" class="pt-8 pb-16 bg-[#050505]">
+                <div class="container mx-auto w-[90%] max-w-[1400px]">
+                    <div class="section-title">
+                        <h3 class="font-arabic text-2xl md:text-3xl text-white">الأكثر مبيعاً</h3>
+                    </div>
+                    <div id="products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- أحدث الإضافات -->
+            <section id="latest-arrivals" class="pt-8 pb-16 bg-[#050505]">
+                <div class="container mx-auto w-[90%] max-w-[1400px]">
+                    <div class="section-title">
+                        <h3 class="font-arabic text-2xl md:text-3xl text-white">أحدث الإضافات</h3>
+                    </div>
+                    <div id="latest-products-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"></div>
+                </div>
+            </section>
+
+            <!-- آراء العملاء -->
+            <section id="reviews" class="py-16 bg-[#0a0a0a] border-y border-[rgba(212,175,55,0.1)]">
+                <div class="container mx-auto w-[90%] max-w-[1400px]">
+                    <div class="section-title">
+                        <h3 class="font-arabic text-2xl md:text-3xl text-white">آراء عملائنا</h3>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                        <div class="aspect-square bg-[#121212] border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden group cursor-pointer hover:border-gold transition-colors">
+                            <img src="images/review/1.png" alt="رأي عميل" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1512496388410-db312a03f4f8?w=400'">
+                        </div>
+                        <div class="aspect-square bg-[#121212] border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden group cursor-pointer hover:border-gold transition-colors">
+                            <img src="images/review/2.png" alt="رأي عميل" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400'">
+                        </div>
+                        <div class="aspect-square bg-[#121212] border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden group cursor-pointer hover:border-gold transition-colors">
+                            <img src="images/review/3.png" alt="رأي عميل" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1512496388410-db312a03f4f8?w=400'">
+                        </div>
+                        <div class="aspect-square bg-[#121212] border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden group cursor-pointer hover:border-gold transition-colors">
+                            <img src="images/review/4.png" alt="رأي عميل" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400'">
+                        </div>
+                        <div class="aspect-square bg-[#121212] border border-[rgba(212,175,55,0.2)] rounded-lg overflow-hidden group cursor-pointer hover:border-gold transition-colors hidden lg:block">
+                            <img src="images/review/5.png" alt="رأي عميل" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1512496388410-db312a03f4f8?w=400'">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- مزايا المتجر -->
+            <section class="border-y border-[rgba(212,175,55,0.1)] py-10 bg-[#080808]">
+                <div class="container mx-auto w-[90%] max-w-[1400px]">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-right">
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center md:justify-start">
+                            <i class="ph-light ph-truck text-4xl text-gold"></i>
+                            <div>
+                                <h5 class="text-white font-medium mb-1 font-arabic">شحن سريع</h5>
+                                <p class="text-[#888] text-xs font-arabic leading-relaxed">التوصيل لجميع محافظات مصر<br>خلال 3-4 أيام عمل</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center md:justify-start">
+                            <i class="ph-light ph-seal-check text-4xl text-gold"></i>
+                            <div>
+                                <h5 class="text-white font-medium mb-1 font-arabic">منتجات مضمونة</h5>
+                                <p class="text-[#888] text-xs font-arabic leading-relaxed">جميع منتجاتنا أصلية 100%<br>أو بجودة عالية</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center md:justify-start">
+                            <i class="ph-light ph-headset text-4xl text-gold"></i>
+                            <div>
+                                <h5 class="text-white font-medium mb-1 font-arabic">دعم عملاء</h5>
+                                <p class="text-[#888] text-xs font-arabic leading-relaxed">خدمة عملاء متاحة<br>علي مدار الساعة</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-4 justify-center md:justify-start">
+                            <i class="ph-light ph-arrows-counter-clockwise text-4xl text-gold"></i>
+                            <div>
+                                <h5 class="text-white font-medium mb-1 font-arabic">ضمان موثوق</h5>
+                                <p class="text-[#888] text-xs font-arabic leading-relaxed">ضمان 14 يوم<br>ضد عيوب الصناعة</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- الفوتر (مكوّن مشترك) -->
+        <div id="footer-container"></div>
+
+    </div>
+
+    <!-- زر واتساب العائم -->
+    <a class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white text-3xl z-50 whatsapp-float hover:scale-110 transition-transform duration-300" href="https://wa.me/201555823657" target="_blank" aria-label="تواصل عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- سلة المشتريات (مكوّن مشترك) -->
+    <div id="cart-container"></div>
+
+    <!-- ترتيب السكربتات: البيانات أولاً ثم المنطق -->
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/products-render.js"></script>
+    <script src="js/data-loader.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html>
